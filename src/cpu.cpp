@@ -61,14 +61,14 @@ void Cpu::printRound() {
         if (turn != 0) {
             if (losses > 1) {
                 wins[0]++;
-                std::cout << "\nWon Round! \nScore: " << wins[0]
-                          << "\nCPU Score: " << wins[1] << "\n";
+                std::cout << "\nWon Round!";
             } else {
                 wins[1]++;
-                std::cout << "\nLost Round \nScore: " << wins[0]
-                          << "\nCPU Score: " << wins[1] << "\n";
+                std::cout << "\nLost Round";
             }
             losses = 0;
+            std::cout << " \nScore: "    << wins[0]
+                      << "\nCPU Score: " << wins[1] << "\n";
         }
         std::cout << "\nRound " << round << "\n";
     }

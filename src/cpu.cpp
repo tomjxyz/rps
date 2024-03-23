@@ -3,8 +3,9 @@
 #include <cstdlib>
 #include "../include/cpu.h"
 Cpu::Cpu() {
-    wins = 0;
+    losses = 0;
     turn = 0;
+    wins = std::vector{0,0};
     opts = {'r','p','s'};
 
     std::random_device rd{};
@@ -27,7 +28,7 @@ bool Cpu::play(char userChoice) {
         if (choice == 'r' || choice == 'p')
             return false;
         else {
-            wins++;
+            losses++;
             return true;
         }
         break;
@@ -35,7 +36,7 @@ bool Cpu::play(char userChoice) {
         if (choice == 's' || choice == 'p')
             return false;
         else {
-            wins++;
+            losses++;
             return true;
         }
         break;
@@ -43,7 +44,7 @@ bool Cpu::play(char userChoice) {
         if (choice == 'r' || choice == 's')
             return false;
         else {
-            wins++;
+            losses++;
             return true;
         }
         break;
@@ -55,7 +56,20 @@ bool Cpu::play(char userChoice) {
 
 }
 void Cpu::printRound() {
+    int round = (turn+3)/3;
     if (turn % 3 == 0) {
-        std::cout << "\nRound " << (turn+3)/3 << "\n";
+        if (turn != 0) {
+            if (losses > 1) {
+                wins[0]++;
+                std::cout << "\nWon Round! \nScore: " << wins[0]
+                          << "\nCPU Score: " << wins[1] << "\n";
+            } else {
+                wins[1]++;
+                std::cout << "\nLost Round \nScore: " << wins[0]
+                          << "\nCPU Score: " << wins[1] << "\n";
+            }
+            losses = 0;
+        }
+        std::cout << "\nRound " << round << "\n";
     }
 }

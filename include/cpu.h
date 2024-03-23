@@ -6,8 +6,10 @@ class Cpu {
 private:
     // Current choice (r,p,s)
     char choice;
-    // Number of wins per round
-    int wins;
+    // Number of losses per round
+    int losses;
+    // Number of user vs cpu wins (user, cpu)
+    std::vector<int> wins;
     // Current turn
     int turn;
     // Options for next

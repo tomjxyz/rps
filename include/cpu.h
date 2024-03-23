@@ -1,0 +1,29 @@
+#include <iostream>
+#include <random>
+
+class Cpu {
+
+private:
+    // Current choice (r,p,s)
+    char choice;
+    // Number of wins per round
+    int wins;
+    // Current round
+    int round;
+    // Options for next
+    std::vector<char> opts;
+    //RNG
+    std::mt19937 mt;
+    // To get a list index from RNG
+    std::uniform_int_distribution<int> three;
+
+public:
+    Cpu();
+
+    // Pick next move
+    char next();
+
+    // Compare current choice and user choice and return wether user won or not
+    bool play(char userChoice);
+
+};

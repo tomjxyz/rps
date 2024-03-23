@@ -16,6 +16,7 @@ int main() {
 
     std::cout << "--- Rock Paper Scissors ---\nPress CRTL+C to exit\n";
     while (true){
+        pc.printRound();
         std::cout << "Enter Move: ";
         userChoice = std::getchar();
         win = pc.play(userChoice);

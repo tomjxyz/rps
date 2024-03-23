@@ -8,8 +8,8 @@ private:
     char choice;
     // Number of wins per round
     int wins;
-    // Current round
-    int round;
+    // Current turn
+    int turn;
     // Options for next
     std::vector<char> opts;
     //RNG
@@ -26,4 +26,6 @@ public:
     // Compare current choice and user choice and return wether user won or not
     bool play(char userChoice);
 
+    // Prints round if new one has started.
+    void printRound();
 };
